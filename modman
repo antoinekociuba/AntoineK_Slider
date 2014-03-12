@@ -1,0 +1,9 @@
+app/code/community/AntoineK/*                                   app/code/community/AntoineK
+app/design/adminhtml/default/default/layout/antoinek/*          app/design/adminhtml/default/default/layout/antoinek
+app/design/adminhtml/default/default/template/antoinek/*        app/design/adminhtml/default/default/template/antoinek
+app/design/frontend/base/default/template/antoinek/*            app/design/frontend/base/default/template/antoinek
+skin/adminhtml/default/default/antoinek/*                       skin/adminhtml/default/default/antoinek
+app/etc/modules/AntoineK_Slider.xml                             app/etc/modules/AntoineK_Slider.xml
+app/locale/fr_FR/AntoineK_Slider.csv                            app/locale/fr_FR/AntoineK_Slider.csv
+app/locale/en_US/AntoineK_Slider.csv                            app/locale/en_US/AntoineK_Slider.csv
+js/antoinek/*                                                   js/antoinek
