@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/**
+ * This file is part of AntoineK_Slider for Magento.
+ *
+ * @license All rights reserved
+ * @author Antoine Kociuba <antoine.kociuba@gmail.com>
+ * @category AntoineK
+ * @package AntoineK_Slider
+ * @copyright Copyright (c) 2014 Antoine Kociuba (http://www.antoinekociuba.com)
+ */
+-->
+<layout version="0.1.0">
+    <!-- Slider Grid Ajax -->
+    <adminhtml_slider_slider_gridajax>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="antoinek_slider/adminhtml_slider_grid" name="adminhtml_slider_grid"/>
+        </block>
+    </adminhtml_slider_slider_gridajax>
+
+    <!-- Slider Edit page -->
+    <adminhtml_slider_slider_edit>
+        <update handle="editor" />
+        <update handle="adminhtml_browser_js_overload" />
+        <reference name="head">
+            <action method="addJs"><script>antoinek/slider/adminhtml/ajax-form-popup.js</script></action>
+            <action method="addCss"><css>antoinek/slider/xml-popin.css</css></action>
+        </reference>
+        <reference name="before_body_end">
+            <block type="core/template" name="adminhtml_slider_edit_xml_link" template="antoinek/slider/xml-popin.phtml" />
+        </reference>
+        <reference name="content">
+            <block type="antoinek_slider/adminhtml_slider_edit" name="adminhtml_slider_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="antoinek_slider/adminhtml_slider_edit_tabs" name="adminhtml_slider_edit_tabs">
+                <block type="antoinek_slider/adminhtml_slider_edit_tab_general"
+                       name="adminhtml_slider_edit_tab_general"/>
+                <action method="addTab">
+                    <name>main_section</name>
+                    <block>adminhtml_slider_edit_tab_general</block>
+                </action>
+            </block>
+        </reference>
+    </adminhtml_slider_slider_edit>
+
+    <!-- Slider Slides Grid Ajax -->
+    <adminhtml_slider_slider_slides>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="antoinek_slider/adminhtml_slider_edit_tab_slides" name="adminhtml_slider_edit_tab_slides"/>
+        </block>
+    </adminhtml_slider_slider_slides>
+</layout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/**
+ * This file is part of AntoineK_Slider for Magento.
+ *
+ * @license All rights reserved
+ * @author Antoine Kociuba <antoine.kociuba@gmail.com>
+ * @category AntoineK
+ * @package AntoineK_Slider
+ * @copyright Copyright (c) 2014 Antoine Kociuba (http://www.antoinekociuba.com)
+ */
+-->
+<config>
+    <menu>
+        <cms>
+            <children>
+                <slider translate="title" module="antoinek_slider">
+                    <title>Sliders</title>
+                    <sort_order>10</sort_order>
+                    <children>
+                        <slider translate="title" module="antoinek_slider">
+                            <title>Manage Sliders</title>
+                            <sort_order>1</sort_order>
+                            <action>adminhtml/slider_slider</action>
+                        </slider>
+                    </children>
+                </slider>
+            </children>
+        </cms>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <cms>
+                        <children>
+                            <slider translate="title" module="antoinek_slider">
+                                <title>Sliders</title>
+                                <children>
+                                    <slider translate="title" module="antoinek_slider">
+                                        <title>Manage Sliders</title>
+                                    </slider>
+                                </children>
+                            </slider>
+                        </children>
+                    </cms>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

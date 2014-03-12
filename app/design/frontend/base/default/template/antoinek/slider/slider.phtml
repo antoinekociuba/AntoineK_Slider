@@ -1,0 +1,32 @@
+<?php
+/**
+ * This file is part of AntoineK_Slider for Magento.
+ *
+ * @license All rights reserved
+ * @author Antoine Kociuba <antoine.kociuba@gmail.com>
+ * @category AntoineK
+ * @package AntoineK_Slider
+ * @copyright Copyright (c) 2014 Antoine Kociuba (http://www.antoinekociuba.com)
+ */
+?>
+
+<?php
+$_helper = $this->helper('antoinek_slider');
+$_slider = $this->getSlider();
+$_slides = $_slider->getSlides();
+?>
+
+<div>
+    <span><?php echo $_slider->getTitle() ?></span>
+    <ul>
+    <?php foreach ($_slides as $_slide) :?>
+        <li>
+            <?php if ($_linkUrl = $_slide->getUrl()) :?>
+                <a <?php echo ($_linkTitle = $_slide->getLink()) ? "title=$_linkTitle" : ""; ?> href="<?php echo $_linkUrl ?>"><img src="<?php echo $_helper->resize($_slide->getImage(), 500)?>" alt="<?php echo $_slide->getTitle() ?>" title="<?php echo $_slide->getTitle() ?>"/></a>
+            <?php else : ?>
+                <img src="<?php echo $_helper->resize($_slide->getImage(), 500)?>" alt="<?php echo $_slide->getTitle() ?>" title="<?php echo $_slide->getTitle() ?>"/>
+            <?php endif; ?>
+        </li>
+    <?php endforeach; ?>
+    </ul>
+</div>

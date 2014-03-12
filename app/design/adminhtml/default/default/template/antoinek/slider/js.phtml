@@ -1,0 +1,48 @@
+<?php
+/**
+ * This file is part of AntoineK_Slider for Magento.
+ *
+ * @license All rights reserved
+ * @author Antoine Kociuba <antoine.kociuba@gmail.com>
+ * @category AntoineK
+ * @package AntoineK_Slider
+ * @copyright Copyright (c) 2014 Antoine Kociuba (http://www.antoinekociuba.com)
+ */
+?>
+<script type="text/javascript">
+//<![CDATA[
+    var akSortableTrInitFn = function() {
+        var container = $('slide_grid_tbody');
+
+        if (!container) {
+            return;
+        }
+        Sortable.create(container, {
+                tag:"tr",
+                dropOnEmpty:false,
+                overlap:'vertical',
+                constraint:'vertical',
+                containment: [container],
+                handle: 'ak-position-el',
+                onChange: function(item) {
+                    var inputSelector = ".ak-sort-el input[type=hidden]";
+                    var value = 1;
+                    container.select(inputSelector).each(function(input){
+                        input.setValue(value);
+                        value++;
+                    });
+                },
+                starteffect: function(element){
+                    element.addClassName('ak-tr-ondrag');
+                    element.up('table').addClassName('ak-table-ondrag');
+                },
+                endeffect: function(element){
+                    element.removeClassName('ak-tr-ondrag');
+                    element.up('table').removeClassName('ak-table-ondrag');
+                }
+            }
+        );
+    };
+    akSortableTrInitFn();
+//]]>
+</script>

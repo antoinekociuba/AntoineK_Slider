@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * This file is part of AntoineK_Slider for Magento.
+ *
+ * @license All rights reserved
+ * @author Antoine Kociuba <antoine.kociuba@gmail.com>
+ * @category AntoineK
+ * @package AntoineK_Slider
+ * @copyright Copyright (c) 2014 Antoine Kociuba (http://www.antoinekociuba.com)
+ */
+-->
+<widgets>
+    <antoinek_slider type="antoinek_slider/widget_slider" translate="name description" module="antoinek_slider">
+        <name>Slider</name>
+        <description>Slider</description>
+        <parameters>
+            <slider_id translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Select a slider</label>
+                <type>select</type>
+                <source_model>antoinek_slider/adminhtml_source_slider</source_model>
+            </slider_id>
+            <template>
+                <required>1</required>
+                <visible>1</visible> 
+                <label>Template</label>
+                <type>select</type> 
+                <value>antoinek/slider/slider.phtml</value>        
+                <values>
+                    <default translate="label">
+                        <value>antoinek/slider/slider.phtml</value>
+                        <label>Default Slider Template</label>              
+                    </default>            
+                </values>
+            </template>
+        </parameters>
+    </antoinek_slider>
+</widgets>

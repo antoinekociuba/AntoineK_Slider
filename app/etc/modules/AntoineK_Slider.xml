@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/**
+ * This file is part of AntoineK_Slider for Magento.
+ *
+ * @license All rights reserved
+ * @author Antoine Kociuba <antoine.kociuba@gmail.com>
+ * @category AntoineK
+ * @package AntoineK_Slider
+ * @copyright Copyright (c) 2014 Antoine Kociuba (http://www.antoinekociuba.com)
+ */
+-->
+<config>
+    <modules>
+        <AntoineK_Slider>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <AntoineK_MediaChooserField/>
+            </depends>
+        </AntoineK_Slider>
+    </modules>
+</config>

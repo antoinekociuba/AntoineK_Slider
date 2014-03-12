@@ -1,0 +1,102 @@
+<?php
+/**
+ * This file is part of AntoineK_Slider for Magento.
+ *
+ * @license All rights reserved
+ * @author Antoine Kociuba <antoine.kociuba@gmail.com>
+ * @category AntoineK
+ * @package AntoineK_Slider
+ * @copyright Copyright (c) 2014 Antoine Kociuba (http://www.antoinekociuba.com)
+ */
+?>
+<?php
+    $_slider = Mage::registry('current_slider');
+?>
+
+<?php if ($_slider->getId()): ?>
+    <div id="xml-popin" style="display: none;">
+        <div id="xml-popin-shadow" style="display: none;"></div>
+        <div id="xml-popin-frame" style="display: none;">
+            <div class="inner">
+                <div class="content-header">
+                    <h3><?php echo $this->__('Slider: %s - XML Layout Code', $_slider->getTitle()) ?></h3>
+                </div>
+                <p><?php echo $this->__('The following XML layout code can be used to display this slider on your website.') ?></p>
+                <p><?php echo $this->__('Copy it into either a layout XML file or a <em>Layout Update XML</em> field in the Magento Admin area. You may need to change the reference name to display the slider on a specific frontend area.') ?></p>
+                <div class="fieldset">
+                    <pre>
+&lt;reference name="content"&gt;
+    &lt;block after="-" type="antoinek_slider/slider" name="antoinek_slider_<?php echo $_slider->getId() ?>" template="antoinek/slider/slider.phtml"&gt;
+        &lt;action method="setSliderId"&gt;&lt;value&gt;<?php echo $_slider->getId() ?>&lt;/value&gt;&lt;/action&gt;
+    &lt;/block&gt;
+&lt;/reference&gt;
+                    </pre>
+                </div>
+                <div class="buttons-set">
+                    <button type="button" class="button" id="xml-popin-btn"><span><span><?php echo $this->__('Close') ?></span></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        (function() {
+            var a = new Element('a', {
+                'href': '#',
+                'id': 'xml-popin-go'
+            }).update('(<?php echo $this->__('Get the XML Layout Code') ?>)');
+
+            $('content').select('h3.icon-head').first().appendChild(a);
+
+            var xmlPopin = {
+                wrapper: $('xml-popin'),
+                shadow: $('xml-popin-shadow'),
+                frame: $('xml-popin-frame'),
+                btn: $('xml-popin-btn'),
+                go: $('xml-popin-go')
+            };
+
+            // Open
+            xmlPopin.go.observe('click', function(event) {
+                Event.stop(event);
+
+                xmlPopin.wrapper.show();
+
+                Effect.Appear(xmlPopin.shadow, {
+                    duration: 0.4,
+                    from: 0,
+                    to: 0.6
+                });
+
+                Effect.Appear(xmlPopin.frame, {
+                    duration: 0.5,
+                    from: 0,
+                    to: 1
+                });
+            });
+
+            // Close
+            xmlPopin.btn.observe('click', function(event) {
+                Event.stop(event);
+
+                Effect.Fade(xmlPopin.frame, {
+                    duration: 0.2,
+                    from: 1,
+                    to: 0,
+                    afterFinish: function() {
+                        xmlPopin.frame.hide();
+                    }
+                });
+
+                Effect.Fade(xmlPopin.shadow, {
+                    duration: 0.3,
+                    from: 0.6,
+                    to: 0,
+                    afterFinish: function() {
+                        xmlPopin.shadow.hide();
+                        xmlPopin.wrapper.hide();
+                    }
+                });
+            });
+        })();
+    </script>
+<?php endif; ?>

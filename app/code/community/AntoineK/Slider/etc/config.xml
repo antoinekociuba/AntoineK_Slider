@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * This file is part of AntoineK_Slider for Magento.
+ *
+ * @license All rights reserved
+ * @author Antoine Kociuba <antoine.kociuba@gmail.com>
+ * @category AntoineK
+ * @package AntoineK_Slider
+ * @copyright Copyright (c) 2014 Antoine Kociuba (http://www.antoinekociuba.com)
+ */
+-->
+<config>
+    <modules>
+        <AntoineK_Slider>
+            <version>1.0.0.0</version>
+        </AntoineK_Slider>
+    </modules>
+    <global>
+        <models>
+            <antoinek_slider>
+                <class>AntoineK_Slider_Model</class>
+                <resourceModel>antoinek_slider_resource</resourceModel>
+            </antoinek_slider>
+            <antoinek_slider_resource>
+                <class>AntoineK_Slider_Model_Resource</class>
+                <entities>
+                    <slider>
+                        <table>antoinek_slider_slider</table>
+                    </slider>
+                    <slider_store>
+                        <table>antoinek_slider_slider_store</table>
+                    </slider_store>
+                    <slide>
+                        <table>antoinek_slider_slider_slide</table>
+                    </slide>
+                </entities>
+            </antoinek_slider_resource>
+        </models>
+        <blocks>
+            <antoinek_slider>
+                <class>AntoineK_Slider_Block</class>
+            </antoinek_slider>
+        </blocks>
+        <helpers>
+            <antoinek_slider>
+                <class>AntoineK_Slider_Helper</class>
+            </antoinek_slider>
+        </helpers>
+        <resources>
+            <antoinek_slider_setup>
+                <setup>
+                    <module>AntoineK_Slider</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </antoinek_slider_setup>
+        </resources>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <antoinek_slider after="Mage_Adminhtml">AntoineK_Slider_Adminhtml</antoinek_slider>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <antoinek_slider module="AntoineK_Slider">
+                    <file>antoinek/slider.xml</file>
+                </antoinek_slider>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <AntoineK_Slider>
+                    <files>
+                        <default>AntoineK_Slider.csv</default>
+                    </files>
+                </AntoineK_Slider>
+            </modules>
+        </translate>
+        <events>
+            <clean_catalog_images_cache_after>
+                <observers>
+                    <antoinek_slider>
+                        <class>antoinek_slider/observer</class>
+                        <method>cleanImageCache</method>
+                    </antoinek_slider>
+                </observers>
+            </clean_catalog_images_cache_after>
+        </events>
+    </adminhtml>
+</config>
