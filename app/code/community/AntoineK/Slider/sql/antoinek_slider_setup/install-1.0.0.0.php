@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2014 Antoine Kociuba (http://www.antoinekociuba.com)
  */
 
-try {
+//try {
 
     /* @var $installer Mage_Core_Model_Resource_Setup */
     $installer = $this;
@@ -19,7 +19,7 @@ try {
      * Create table 'antoinek_slider/slider'
      */
     $table = $installer->getConnection()
-        ->newTable($installer->getTable('antoinek_slider/slider_slider'))
+        ->newTable($installer->getTable('antoinek_slider/slider'))
         ->addColumn('slider_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
             'identity'  => true,
             'unsigned'  => true,
@@ -37,7 +37,7 @@ try {
         ), 'Creation Time')
         ->addColumn('updated_at', Varien_Db_Ddl_Table::TYPE_TIMESTAMP, null, array(
         ), 'Last Updated Time')
-        ->addIndex($installer->getIdxName('antoinek_slider/slider_slider', array('slider_id')),
+        ->addIndex($installer->getIdxName('antoinek_slider/slider', array('slider_id')),
             array('slider_id'))
         ->setComment('Sliders');
     $installer->getConnection()->createTable($table);
@@ -57,12 +57,12 @@ try {
             'unsigned'  => true,
             'nullable'  => false
         ), 'Store Id')
-        ->addIndex($installer->getIdxName('antoinek_slider/slider_slider', array('slider_id')),
+        ->addIndex($installer->getIdxName('antoinek_slider/slider', array('slider_id')),
             array('slider_id'))
-        ->addIndex($installer->getIdxName('antoinek_slider/slider_slider', array('store_id')),
+        ->addIndex($installer->getIdxName('antoinek_slider/slider', array('store_id')),
             array('store_id'))
-        ->addForeignKey($installer->getFkName('antoinek_slider/slider_store', 'slider_id', 'antoinek_slider/slider_slider', 'slider_id'),
-            'slider_id', $installer->getTable('antoinek_slider/slider_slider'), 'slider_id',
+        ->addForeignKey($installer->getFkName('antoinek_slider/slider_store', 'slider_id', 'antoinek_slider/slider', 'slider_id'),
+            'slider_id', $installer->getTable('antoinek_slider/slider'), 'slider_id',
             Varien_Db_Ddl_Table::ACTION_CASCADE, Varien_Db_Ddl_Table::ACTION_CASCADE)
         ->addForeignKey($installer->getFkName('antoinek_slider/slider_store', 'store_id', 'core/store', 'store_id'),
             'store_id', $installer->getTable('core/store'), 'store_id',
@@ -74,7 +74,7 @@ try {
      * Create table 'antoinek_slider/slide'
      */
     $table = $installer->getConnection()
-        ->newTable($installer->getTable('antoinek_slider/slider_slide'))
+        ->newTable($installer->getTable('antoinek_slider/slide'))
         ->addColumn('slide_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
             'identity'  => true,
             'unsigned'  => true,
@@ -113,19 +113,19 @@ try {
         ), 'Creation Time')
         ->addColumn('updated_at', Varien_Db_Ddl_Table::TYPE_TIMESTAMP, null, array(
         ), 'Last Updated Time')
-        ->addIndex($installer->getIdxName('antoinek_slider/slider_slide', array('slide_id')),
+        ->addIndex($installer->getIdxName('antoinek_slider/slide', array('slide_id')),
             array('slide_id'))
-        ->addIndex($installer->getIdxName('antoinek_slider/slider_slide', array('slider_id')),
+        ->addIndex($installer->getIdxName('antoinek_slider/slide', array('slider_id')),
             array('slider_id'))
-        ->addForeignKey($installer->getFkName('antoinek_slider/slider_slide', 'slider_id', 'antoinek_slider/slider_slider', 'slider_id'),
-            'slider_id', $installer->getTable('antoinek_slider/slider_slider'), 'slider_id',
+        ->addForeignKey($installer->getFkName('antoinek_slider/slide', 'slider_id', 'antoinek_slider/slider', 'slider_id'),
+            'slider_id', $installer->getTable('antoinek_slider/slider'), 'slider_id',
             Varien_Db_Ddl_Table::ACTION_CASCADE, Varien_Db_Ddl_Table::ACTION_CASCADE)
         ->setComment('Sliders Slides');
     $installer->getConnection()->createTable($table);
 
     $installer->endSetup();
 
-} catch (Exception $e) {
+//} catch (Exception $e) {
     // Silence is golden
-    Mage::logException($e);
-}
+    //Mage::logException($e);
+//}
