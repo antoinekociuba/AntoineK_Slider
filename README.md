@@ -11,6 +11,8 @@ A convenient slider extension which allows you to create slider and manage assoc
 -----
 ![AntoineK_Slider 2](http://www.antoinekociuba.com/wp-content/uploads/2014/03/antoinek-slider2.png)
 -----
+![AntoineK_Slider 2](http://www.antoinekociuba.com/wp-content/uploads/2014/03/antoinek-slider4.png)
+-----
 
 
 ##Requires
