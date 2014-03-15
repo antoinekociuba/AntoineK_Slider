@@ -5,10 +5,13 @@ A convenient slider extension which allows you to create slider and manage assoc
 
 ![AntoineK_Slider 1](http://www.antoinekociuba.com/wp-content/uploads/2014/03/antoinek-slider1.png)
 -----
-![AntoineK_Slider 2](http://www.antoinekociuba.com/wp-content/uploads/2014/03/antoinek-slider2.png)
------
 ![AntoineK_Slider 3](http://www.antoinekociuba.com/wp-content/uploads/2014/03/antoinek-slider3.png)
 -----
+![magento-media-chooser-field-2](http://www.antoinekociuba.com/wp-content/uploads/2014/03/magento-media-chooser-field2.png)
+-----
+![AntoineK_Slider 2](http://www.antoinekociuba.com/wp-content/uploads/2014/03/antoinek-slider2.png)
+-----
+
 
 ##Requires
 
