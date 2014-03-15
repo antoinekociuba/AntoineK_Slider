@@ -25,6 +25,6 @@ AntoineK_MediaChooserField
 
 
 This extension will render a simple HTML list on the frontend. You will need to add your own JS layer in order to get a real sexy slider.
-Actually, I didn't want to choose and include any slider plugin as I know everybody has got its own preference (jQuery, Prototype...).
+Actually, I didn't want to choose and include a slider plugin as I know that everybody has got his own preference (jQuery, Prototype...).
 
 Enjoy!
