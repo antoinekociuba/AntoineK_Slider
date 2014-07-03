@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2014 Antoine Kociuba (http://www.antoinekociuba.com)
  */
 
-//try {
+try {
 
     /* @var $installer Mage_Core_Model_Resource_Setup */
     $installer = $this;
@@ -125,7 +125,7 @@
 
     $installer->endSetup();
 
-//} catch (Exception $e) {
+} catch (Exception $e) {
     // Silence is golden
-    //Mage::logException($e);
-//}
+    Mage::logException($e);
+}
