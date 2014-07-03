@@ -15,26 +15,33 @@
         <name>Slider</name>
         <description>Slider</description>
         <parameters>
+            <template>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Template</label>
+                <type>select</type>
+                <value>antoinek/slider/slider.phtml</value>
+                <values>
+                    <default translate="label">
+                        <value>antoinek/slider/slider.phtml</value>
+                        <label>Default Slider Template</label>
+                    </default>
+                </values>
+            </template>
             <slider_id translate="label">
                 <visible>1</visible>
                 <required>1</required>
                 <label>Select a slider</label>
-                <type>select</type>
-                <source_model>antoinek_slider/adminhtml_source_slider</source_model>
+                <type>label</type>
+                <helper_block>
+                    <type>antoinek_slider/adminhtml_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Slider...</open>
+                        </button>
+                    </data>
+                </helper_block>
             </slider_id>
-            <template>
-                <required>1</required>
-                <visible>1</visible> 
-                <label>Template</label>
-                <type>select</type> 
-                <value>antoinek/slider/slider.phtml</value>        
-                <values>
-                    <default translate="label">
-                        <value>antoinek/slider/slider.phtml</value>
-                        <label>Default Slider Template</label>              
-                    </default>            
-                </values>
-            </template>
         </parameters>
     </antoinek_slider>
 </widgets>

@@ -299,7 +299,17 @@ class AntoineK_Slider_Adminhtml_Slider_SliderController extends Mage_Adminhtml_C
         $this->getResponse()->setBody($content->toHtml());
     }
 
-
+    /**
+     * Chooser Source action
+     */
+    public function chooserAction()
+    {
+        $uniqId = $this->getRequest()->getParam('uniq_id');
+        $slidersGrid = $this->getLayout()->createBlock('antoinek_slider/adminhtml_widget_chooser', '', array(
+            'id' => $uniqId,
+        ));
+        $this->getResponse()->setBody($slidersGrid->toHtml());
+    }
 
     /**
      * Is allowed?
