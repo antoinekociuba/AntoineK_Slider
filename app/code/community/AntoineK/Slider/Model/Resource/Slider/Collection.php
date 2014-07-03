@@ -28,6 +28,8 @@ class AntoineK_Slider_Model_Resource_Slider_Collection extends Mage_Core_Model_R
     {
         parent::_construct();
         $this->_init('antoinek_slider/slider');
+        $this->_map['fields']['store']      = 'store_table.store_id';
+        $this->_map['fields']['slider_id']  = 'main_table.slider_id';
     }
 
     /**
@@ -66,6 +68,26 @@ class AntoineK_Slider_Model_Resource_Slider_Collection extends Mage_Core_Model_R
     {
         $this->addFieldToFilter('is_active', $active);
         return $this;
+    }
+
+    /**
+     * Join store relation table if there is store filter
+     */
+    protected function _renderFiltersBefore()
+    {
+        if ($this->getFilter('store')) {
+            $this->getSelect()->join(
+                array('store_table' => $this->getTable('antoinek_slider/slider_store')),
+                'main_table.slider_id = store_table.slider_id',
+                array()
+            )->group('main_table.slider_id');
+
+            /*
+             * Allow analytic functions usage because of one field grouping
+             */
+            $this->_useAnalyticFunction = true;
+        }
+        return parent::_renderFiltersBefore();
     }
 
 // Antoine Kociuba Tag NEW_METHOD
