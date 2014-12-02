@@ -107,7 +107,7 @@ var sliderAjaxFormPopup = Class.create({
             windowClassName:"popup-window",
             title:(typeof slideId == 'undefined' || slideId === null ? this.messages.newTitle : this.messages.editTitle),
             width:950,
-            height:350,
+            height:'auto',
             zIndex:1000,
             recenterAuto:false,
             hideEffect:Element.hide,
