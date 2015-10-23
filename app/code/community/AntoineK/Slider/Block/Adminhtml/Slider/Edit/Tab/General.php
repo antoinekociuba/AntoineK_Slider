@@ -83,6 +83,8 @@ class AntoineK_Slider_Block_Adminhtml_Slider_Edit_Tab_General
             )
         ));
 
+        Mage::dispatchEvent('antoinek_slider_adminhtml_slider_edit_tab_general_prepare_form', array('form' => $form));
+
         $form->setValues($entity->getData());
         $this->setForm($form);
 

@@ -100,6 +100,8 @@ class AntoineK_Slider_Block_Adminhtml_Slide_Edit_Form extends Mage_Adminhtml_Blo
             )
         ));
 
+        Mage::dispatchEvent('antoinek_slider_adminhtml_slide_edit_prepare_form', array('form' => $form));
+
         $form->setUseContainer(true);
         $this->setForm($form);
 
