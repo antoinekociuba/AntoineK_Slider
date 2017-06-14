@@ -6,7 +6,7 @@
  * @author Antoine Kociuba <antoine.kociuba@gmail.com>
  * @category AntoineK
  * @package AntoineK_Slider
- * @copyright Copyright (c) 2014 Antoine Kociuba (http://www.antoinekociuba.com)
+ * @copyright Copyright (c) 2017 Antoine Kociuba (http://www.antoinekociuba.com)
  */
 
 try {
@@ -15,20 +15,23 @@ try {
     $installer = $this;
     $installer->startSetup();
 
-    $installer->getConnection()->modifyColumn(
+    $installer->getConnection()->addColumn(
         $installer->getTable('antoinek_slider/slide'),
-        'position',
+        'image_responsive',
         array(
-            'type'      => Varien_Db_Ddl_Table::TYPE_INTEGER,
-            'nullable'  => false,
-            'default'   => 999,
-            'comment'   => 'Slide Position'
+            'type' => Varien_Db_Ddl_Table::TYPE_TEXT,
+            'length' => 255,
+            'nullable' => true,
+            'after' => 'image',
+            'comment' => 'Image responsive'
         )
     );
 
     $installer->endSetup();
 
 } catch (Exception $e) {
-    // Silence is golden
     Mage::logException($e);
+    if (Mage::getIsDeveloperMode()) {
+        Mage::throwException($e->getMessage());
+    }
 }

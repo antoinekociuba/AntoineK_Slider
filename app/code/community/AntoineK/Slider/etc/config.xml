@@ -98,13 +98,4 @@
             </clean_catalog_images_cache_after>
         </events>
     </adminhtml>
-    <frontend>
-        <layout>
-            <updates>
-                <antoinek_slider module="AntoineK_Slider">
-                    <file>antoinek_slider.xml</file>
-                </antoinek_slider>
-            </updates>
-        </layout>
-    </frontend>
 </config>
