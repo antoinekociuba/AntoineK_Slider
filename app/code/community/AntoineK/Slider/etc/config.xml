@@ -13,7 +13,7 @@
 <config>
     <modules>
         <AntoineK_Slider>
-            <version>1.0.0.1</version>
+            <version>1.0.0.2</version>
         </AntoineK_Slider>
     </modules>
     <global>
@@ -98,4 +98,13 @@
             </clean_catalog_images_cache_after>
         </events>
     </adminhtml>
+    <frontend>
+        <layout>
+            <updates>
+                <antoinek_slider module="AntoineK_Slider">
+                    <file>antoinek_slider.xml</file>
+                </antoinek_slider>
+            </updates>
+        </layout>
+    </frontend>
 </config>
