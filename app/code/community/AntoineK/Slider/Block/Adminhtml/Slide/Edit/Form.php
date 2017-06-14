@@ -74,6 +74,13 @@ class AntoineK_Slider_Block_Adminhtml_Slide_Edit_Form extends Mage_Adminhtml_Blo
             'required' => true
         ));
 
+        $fieldset->addField('image_responsive', 'mediachooser', array(
+            'name' => 'image_responsive',
+            'label' => $help->__('Image responsive'),
+            'title' => $help->__('Image responsive'),
+            'required' => true
+        ));
+
         $fieldset->addField('link', 'text', array(
             'name' => 'link',
             'label' => $help->__('Link'),
