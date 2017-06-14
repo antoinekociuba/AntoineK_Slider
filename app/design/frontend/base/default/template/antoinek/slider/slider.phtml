@@ -22,9 +22,17 @@ $_slides = $_slider->getSlides();
         <?php foreach ($_slides as $_slide) :?>
             <li>
                 <?php if ($_linkUrl = $_slide->getUrl()) :?>
-                    <a <?php echo ($_linkTitle = $_slide->getLink()) ? 'title="' . $_linkTitle . '"' : ""; ?> href="<?php echo $_linkUrl ?>"><img src="<?php echo $_helper->resize($_slide->getImage(), 500)?>" alt="<?php echo $_slide->getTitle() ?>" title="<?php echo $_slide->getTitle() ?>"/></a>
+                    <a <?php echo ($_linkTitle = $_slide->getLink()) ? 'title="' . $_linkTitle . '"' : ""; ?> href="<?php echo $_linkUrl ?>">
+                        <img src="<?php echo $_helper->resize($_slide->getImage(), 500)?>" alt="<?php echo $_slide->getTitle() ?>" title="<?php echo $_slide->getTitle() ?>"/>
+                        <?php if($_slide->getImageResponsive()): ?>
+                            <img src="<?php echo $_helper->resize($_slide->getImageResponsive(), 500); ?>" alt="<?php echo $_slide->getTitle() ?>" title="<?php echo $_slide->getTitle() ?>"/>
+                        <?php endif; ?>
+                    </a>
                 <?php else : ?>
                     <img src="<?php echo $_helper->resize($_slide->getImage(), 500)?>" alt="<?php echo $_slide->getTitle() ?>" title="<?php echo $_slide->getTitle() ?>"/>
+                    <?php if($_slide->getImageResponsive()): ?>
+                        <img src="<?php echo $_helper->resize($_slide->getImageResponsive(), 500); ?>" alt="<?php echo $_slide->getTitle() ?>" title="<?php echo $_slide->getTitle() ?>"/>
+                    <?php endif; ?>
                 <?php endif; ?>
             </li>
         <?php endforeach; ?>
